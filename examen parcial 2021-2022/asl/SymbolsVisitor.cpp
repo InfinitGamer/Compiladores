@@ -107,11 +107,23 @@ antlrcpp::Any SymbolsVisitor::visitFunction(AslParser::FunctionContext *ctx) {
 antlrcpp::Any SymbolsVisitor::visitStructType(AslParser::StructTypeContext *ctx){
   DEBUG_ENTER();
   TypesMgr::TypeId str = Types.createEmptyStructTy();
-  for(auto var : ctx -> param()){
-    std::string stri = var -> ID() -> getText();
+  int size = ctx -> ID().size();
+  for(int i = 0; i <size; ++i){
+    std::string stri = ctx->ID(i)-> getText();
     
-    visit(var->type());
-    TypesMgr::TypeId ty = getTypeDecor(var->type());
+    TypesMgr::TypeId ty = Types.createErrorTy();
+    if (ctx->BASIC_TYPE(i)->getText() == "int") {
+    	ty = Types.createIntegerTy();
+	  }
+	  else if(ctx->BASIC_TYPE(i)->getText() == "bool"){
+	    ty = Types.createBooleanTy();
+	  }
+	  else if(ctx->BASIC_TYPE(i)->getText() == "char"){
+	    ty = Types.createCharacterTy();
+	  }
+	  else if(ctx->BASIC_TYPE(i)->getText() == "float"){
+	    ty = Types.createFloatTy();
+	  }
     if(Types.existStructField(str, stri)){
       Errors.structRedeclaresFieldName(ctx);
     }
@@ -166,18 +178,19 @@ antlrcpp::Any SymbolsVisitor::visitParam(AslParser::ParamContext *ctx){
 antlrcpp::Any SymbolsVisitor::visitBasicType(AslParser::BasicTypeContext *ctx) {
   DEBUG_ENTER();
   TypesMgr::TypeId t = Types.createErrorTy(); 
-  if (ctx->INT()) {
+  if (ctx->BASIC_TYPE()->getText() == "int") {
     t = Types.createIntegerTy();
   }
-  else if(ctx -> BOOL()){
+  else if(ctx->BASIC_TYPE()->getText() == "bool"){
     t = Types.createBooleanTy();
   }
-  else if(ctx -> CHAR()){
+  else if(ctx->BASIC_TYPE()->getText() == "char"){
     t = Types.createCharacterTy();
   }
-  else if(ctx -> FLOAT()){
+  else if(ctx->BASIC_TYPE()->getText() == "float"){
     t = Types.createFloatTy();
   }
+
   putTypeDecor(ctx, t);
   DEBUG_EXIT();
   return 0;
@@ -188,16 +201,16 @@ antlrcpp::Any SymbolsVisitor::visitArrayType(AslParser::ArrayTypeContext *ctx) {
   std::string tempStr = ctx->INTVAL()->getText();
   int size = stoi(tempStr);
   TypesMgr::TypeId t = Types.createErrorTy(); 
-  if (ctx->INT()) {
+  if (ctx->BASIC_TYPE()->getText() == "int") {
     t = Types.createArrayTy(size, Types.createIntegerTy());
   }
-  else if(ctx -> BOOL()){
+  else if(ctx->BASIC_TYPE()->getText() == "bool"){
     t = Types.createArrayTy(size, Types.createBooleanTy());
   }
-  else if(ctx -> CHAR()){
+  else if(ctx->BASIC_TYPE()->getText() == "char"){
     t = Types.createArrayTy(size, Types.createCharacterTy());
   }
-  else if(ctx -> FLOAT()){
+  else if(ctx->BASIC_TYPE()->getText() == "float"){
     t = Types.createArrayTy(size, Types.createFloatTy());
   }
   putTypeDecor(ctx, t);

@@ -52,9 +52,9 @@ param
         : ID ':' type
         ;
 
-type    : (INT | BOOL | FLOAT |CHAR)            # basicType
-        | 'array' '[' INTVAL ']' 'of' (INT | BOOL | FLOAT |CHAR) # arrayType 
-        | 'struct' '{' param  (',' param)* '}' #structType
+type    : BASIC_TYPE           # basicType
+        | 'array' '[' INTVAL ']' 'of' BASIC_TYPE # arrayType 
+        | 'struct' '{' ID':'BASIC_TYPE  (',' ID':'BASIC_TYPE)* '}' #structType
         ;
 
 statements
@@ -129,6 +129,7 @@ MUL       : '*';
 DIV       : '/';
 MOD       : '%';
 VAR       : 'var';
+BASIC_TYPE: (INT | BOOL | FLOAT |CHAR);
 INT       : 'int';
 BOOL      : 'bool';
 CHAR      : 'char';
