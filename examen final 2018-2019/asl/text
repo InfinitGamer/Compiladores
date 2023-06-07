@@ -1,0 +1,336 @@
+function init
+  params
+    aI integer array
+    k integer
+  endparams
+
+  vars
+    i integer
+  endvars
+
+     %1 = 0
+     i = %1
+  label while1 :
+     %2 = 10
+     %3 = i < %2
+     ifFalse %3 goto endwhile1
+     %4 = 1
+     %5 = 0
+     %6 = 10
+     %7 = i < %5
+     %8 = %6 <= i
+     %9 = %7 or %8
+     ifFalse %9 goto endComprobacionIndice1
+     %99 = 'R'
+     writec %99
+     %99 = 'u'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 't'
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = 'm'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'E'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'L'
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = '7'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = '4'
+     writec %99
+     %99 = '.'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'A'
+     writec %99
+     %99 = 'c'
+     writec %99
+     %99 = 'c'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = 's'
+     writec %99
+     %99 = 's'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'u'
+     writec %99
+     %99 = 't'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'f'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'a'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 'g'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'a'
+     writec %99
+     %99 = 'I'
+     writec %99
+     %99 = '['
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = ']'
+     writec %99
+     writeln
+     halt ""
+  label endComprobacionIndice1 :
+     %10 = i * %4
+     %11 = i * i
+     %12 = %11 + k
+     %13 = aI
+     %13[%10] = %12
+     %14 = 1
+     %15 = i + %14
+     i = %15
+     goto while1
+  label endwhile1 :
+     return
+endfunction
+
+function f
+  params
+    a integer array
+  endparams
+
+  vars
+    i integer
+    x integer
+  endvars
+
+     %1 = 0
+     i = %1
+  label while1 :
+     %2 = 15
+     %3 = i < %2
+     ifFalse %3 goto endwhile1
+     %4 = 1
+     %5 = i + %4
+     %6 = 1
+     %7 = 0
+     %8 = 10
+     %9 = %5 < %7
+     %10 = %8 <= %5
+     %11 = %9 or %10
+     ifFalse %11 goto endComprobacionIndice1
+     %99 = 'R'
+     writec %99
+     %99 = 'u'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 't'
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = 'm'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'E'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'L'
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = '1'
+     writec %99
+     %99 = '6'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = '8'
+     writec %99
+     %99 = '.'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'A'
+     writec %99
+     %99 = 'c'
+     writec %99
+     %99 = 'c'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = 's'
+     writec %99
+     %99 = 's'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'u'
+     writec %99
+     %99 = 't'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'o'
+     writec %99
+     %99 = 'f'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'r'
+     writec %99
+     %99 = 'a'
+     writec %99
+     %99 = 'n'
+     writec %99
+     %99 = 'g'
+     writec %99
+     %99 = 'e'
+     writec %99
+     %99 = ':'
+     writec %99
+     %99 = ' '
+     writec %99
+     %99 = 'a'
+     writec %99
+     %99 = '['
+     writec %99
+     %99 = 'i'
+     writec %99
+     %99 = '+'
+     writec %99
+     %99 = '1'
+     writec %99
+     %99 = ']'
+     writec %99
+     writeln
+     halt ""
+  label endComprobacionIndice1 :
+     %12 = %5 * %6
+     %13 = a
+     %14 = %13[%12]
+     x = %14
+     writes "a["
+     %15 = 1
+     %16 = i + %15
+     writei %16
+     writes "]="
+     writei x
+     writes "\n"
+     %17 = 1
+     %18 = i + %17
+     i = %18
+     goto while1
+  label endwhile1 :
+     writes "bad message!"
+     writes "\n"
+     return
+endfunction
+
+function main
+  vars
+    b integer 10
+    c integer 10
+  endvars
+
+     pushparam 
+     %1 = &b
+     pushparam %1
+     %2 = 5
+     pushparam %2
+     call init
+     popparam 
+     popparam 
+     popparam 
+     %3 = 0
+     %7 = 1
+     %8 = %3
+     %9 = %3
+     %4 = 10
+  label while1 :
+     %5 = %3 < %4
+     ifFalse %5 goto endwhile1
+     %6 = b[%9]
+     c[%8] = %6
+     %3 = %3 + %7
+     %8 = %8 + %7
+     %9 = %9 + %7
+     goto while1
+  label endwhile1 :
+     pushparam 
+     %10 = &c
+     pushparam %10
+     call f
+     popparam 
+     popparam 
+     return
+endfunction
+
+
